@@ -1,0 +1,23 @@
+name: Node.js CD
+
+on:
+  workflow_run:
+    workflows: ["Node.js CI"]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Deploy to Heroku
+      uses: akhileshns/heroku-deploy@v3.12.13
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+        heroku_email: ${{ github.actor }}@users.noreply.github.com
