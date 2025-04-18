@@ -43,9 +43,13 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: build-files
+        name: build-files-${{ matrix.node-version }}-${{ github.run_id }}
         path: |
           ./app.js
           ./package.json
           ./package-lock.json
           !node_modules/**/*
+        if-no-files-found: warn
+        compression-level: 6
+        overwrite: false
+        include-hidden-files: false
