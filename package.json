@@ -1,0 +1,28 @@
+{
+  "name": "github-actions-tutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest --forceExit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nao228o/github-actions-tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nao228o/github-actions-tutorial/issues"
+  },
+  "homepage": "https://github.com/nao228o/github-actions-tutorial#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.1.0"
+  }
+}
